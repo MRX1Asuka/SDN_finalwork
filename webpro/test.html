@@ -1,0 +1,171 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/d9b27523ec.js" crossorigin="anonymous"></script>
+  <title>SDN拓扑管理系统</title>
+  <style>
+    *{
+      margin: 0px;
+      padding: 0px;
+    }
+    #header {
+      background-color: #2c3e50;
+      color: #ecf0f1;
+      padding: 10px;
+      text-align: center;
+    }
+    .header h1{
+      text-align:center;
+      margin-bottom: 80px;
+      padding-top: 20px;
+      font-weight: bold;
+      position: relative;
+    }
+    .header h1::after{
+      content: '';
+      background: lightseagreen;
+      width: 80px;
+      height: 6px;
+      position: absolute;
+      bottom: -4px;
+      left:50%;
+      transform: translateX(-50%);
+    }
+    .container {
+      width: 100%;
+      height: 100vh;
+    }
+    .container h1{
+      text-align:center;
+      margin-bottom: 80px;
+      padding-top: 20px;
+      font-weight: bold;
+      position: relative;
+    }
+    .container h1::after{
+      content: '';
+      background: lightseagreen;
+      width: 80px;
+      height: 6px;
+      position: absolute;
+      bottom: -4px;
+      left:50%;
+      transform: translateX(-50%);
+    }
+    .row{
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+      grid-gap:20px;
+    }
+    .content{
+      display: flex;
+      justify-items: center;
+      vertical-align: middle;
+      align-items: center;
+      margin:0px 30px;
+      height:100px;
+      box-shadow: 10px 10px 30px 0px lightgray;
+      border-radius: 10px;
+      transition: 0.4s;
+    }
+    .row a{
+      text-decoration: none;
+    }
+    .content i{
+      font-size:25px;
+      color:black;
+    }
+    .content h2{
+      padding: 0px 10px;
+      color:black;
+    }
+    .content:hover {
+      scale: 0.97;
+      box-shadow: none;
+      background: lightseagreen;
+    }
+    .content:hover h2{
+      color: white;
+    }
+    .content:hover i{
+      color: white;
+    }
+
+    #topologyImageContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 80%;
+      width: 100%;
+      justify-content: center;
+      border: 2px solid #bdc3c7;
+      border-radius: 5px;
+      margin-top: 29px;
+      overflow: hidden;
+  }
+
+  #topologyImage {
+      display: none;
+      overflow: hidden;
+      width: 50%;
+      height: 65%;
+      border-radius: 5px;
+  }
+  </style>
+</head>
+<body>
+  <!-- <div id="header">
+    <h1>欢迎使用SDN拓扑管理系统</h1>
+  </div> -->
+  <div id="container" class="container">
+    <h1>欢迎使用SDN拓扑管理系统</h1>
+    <div class="row">
+      <a href="#">
+        <div id="executeBtn" class="content">
+          <i class="fa-solid fa-computer"></i>
+          <h2>查看文件目录</h2>
+        </div>
+      </a>
+      <a href="#">
+        <div id="createtopoBtn" class="content" onclick="createTopology()">
+          <i class="fa-solid fa-computer"></i>
+          <h2>构造拓扑</h2>
+        </div>
+      </a>
+      <a href="#">
+        <div id="createdataBtn" class="content">
+          <i class="fa-solid fa-computer"></i>
+          <h2>构造数据包</h2>
+        </div>
+      </a>
+      <a href="#">
+        <div id="monitordataBtn" class="content">
+          <i class="fa-solid fa-computer"></i>
+          <h2>流量监测</h2>
+        </div>
+      </a>
+      <a href="#">
+        <div id="top10dataBtn" class="content">
+          <i class="fa-solid fa-computer"></i>
+          <h2>Top10频率流</h2>
+        </div>
+      </a>
+    </div>
+    <div id="topologyImageContainer">
+      <img id="topologyImage" src="topo.png">
+      <div id="output"></div>
+    </div>
+  </div>
+  
+  <!-- <button id="executeBtn">查看文件目录</button>
+  <button id="createdataBtn">构造数据包</button>
+  <button id="monitordataBtn">流量监测</button>
+  <button id="top10dataBtn">top10频率流</button> -->
+  <!-- <div id="output"></div> -->
+  <script src="client.js"></script>
+</body>
+</html>
+
